@@ -13,6 +13,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.Provider;
 
 @Path("person")
 public class PersonResource {
@@ -23,9 +25,9 @@ public class PersonResource {
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public String getAll() {
+    public Response getAll() {
         PersonsDTO list = FACADE.getAllPersons();
-        return GSON.toJson(list);
+        return Response.ok(GSON.toJson(list),MediaType.APPLICATION_JSON_TYPE).build();
     }
 
     @Path("/{id}")
@@ -40,10 +42,10 @@ public class PersonResource {
     @POST
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
-    public String createPerson(String person){
+    public Response createPerson(String person){
         PersonDTO pDTO = GSON.fromJson(person,PersonDTO.class);
         PersonDTO pDTO1 = FACADE.addPerson(pDTO.getFirstName(), pDTO.getLastName(),pDTO.getPhone());
-        return GSON.toJson(pDTO1);
+        return Response.ok(GSON.toJson(pDTO1),MediaType.APPLICATION_JSON_TYPE).build();
     }
 
     @PUT
