@@ -17,7 +17,7 @@ public class PersonFacade implements IPersonFacade {
     private static EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory();
 
 
-    public PersonFacade() {
+    private PersonFacade() {
     }
 
     public static PersonFacade getPersonFacade(EntityManagerFactory _emf) {
@@ -38,7 +38,6 @@ public class PersonFacade implements IPersonFacade {
         EntityManager em = getEntityManager();
         PersonDTO personDTO = new PersonDTO(fname, Lname, phone);
         Person person = new Person(personDTO);
-
         try {
             em.getTransaction().begin();
             em.persist(person);
@@ -47,7 +46,6 @@ public class PersonFacade implements IPersonFacade {
         } finally {
             em.close();
         }
-
     }
 
     @Override
@@ -65,7 +63,6 @@ public class PersonFacade implements IPersonFacade {
         } finally {
             em.close();
         }
-
     }
 
     @Override

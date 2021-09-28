@@ -13,7 +13,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="PersonExe" options="-endorseddirs C:\Users\Quiet\Documents\3SemMixed\PersonExe\target/endorsed" />
+      <module name="PersonExe" options="-endorseddirs &quot;C:\Users\SørenBendtsen\Documents\3. semester\PersonExe\target/endorsed&quot;" />
       <module name="devops-starter" options="-endorseddirs &quot;C:\Users\SørenBendtsen\Documents\3. semester\PersonDemoCode\target/endorsed&quot;" />
     </option>
   </component>
